@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070707">
+<title>Para Laura 💕</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.overlay{position:fixed;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,196,0,.12),transparent 38%),linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.78));z-index:1}
+.card{position:relative;z-index:3;width:min(92vw,560px);padding:34px 24px;text-align:center;border:1px solid rgba(255,214,64,.25);border-radius:28px;background:rgba(12,12,12,.62);backdrop-filter:blur(14px);box-shadow:0 0 60px rgba(255,193,7,.12)}
+.small{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#ffe477;margin-bottom:14px}
+h1{font-size:clamp(40px,11vw,72px);margin:0 0 10px;color:#ffd21a;text-shadow:0 0 22px rgba(255,205,30,.45)}
+.subtitle{font-size:18px;line-height:1.5;color:#f7f7f7;margin:0 auto 24px;max-width:440px}
+button{border:0;border-radius:999px;padding:15px 25px;font-size:16px;font-weight:700;cursor:pointer;color:#171100;background:linear-gradient(135deg,#ffe86b,#ffbd00);box-shadow:0 10px 30px rgba(255,193,7,.22);transition:.2s}
+button:hover{transform:translateY(-2px) scale(1.02)}
+#letter{display:none;margin-top:22px;padding:22px;border-radius:20px;background:rgba(255,210,40,.08);border:1px solid rgba(255,220,80,.18);line-height:1.7;color:#fff8d7;font-size:16px}
+#letter.show{display:block;animation:appear .7s ease}
+.heart{font-size:32px;margin-top:14px;animation:pulse 1.5s infinite}
+.footer{margin-top:18px;font-size:12px;color:#aaa}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse{50%{transform:scale(1.15)}}
+</style>
+</head>
+<body>
+<canvas id="flowers"></canvas>
+<div class="overlay"></div>
+
+<main class="card">
+  <div class="small">21 de septiembre · para ti</div>
+  <h1>Laura 💕</h1>
+  <p class="subtitle">Hoy no quería regalarte simplemente flores… quería hacer que aparecieran especialmente para ti.</p>
+  <button id="open">🌼 Toca para recibir tus flores</button>
+
+  <div id="letter">
+    <strong>Para Laura:</strong><br><br>
+    Que estas flores amarillas te recuerden lo especial que eres.
+    No importa que sean virtuales: las hice pensando en ti y quería que hoy
+    tuvieras una pequeña sorpresa que pudiera sacarte una sonrisa. 💛<br><br>
+    <span style="font-size:18px">Espero que te gusten tanto como a mí me gustó prepararlas para ti. 🌻</span>
+    <div class="heart">💕</div>
+  </div>
+  <div class="footer">Hecho especialmente para Laura</div>
+</main>
+
+<script>
+const canvas=document.getElementById('flowers'),ctx=canvas.getContext('2d');
+let W,H,flowers=[],started=false;
+function resize(){W=canvas.width=innerWidth*devicePixelRatio;H=canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);W=innerWidth;H=innerHeight}
+addEventListener('resize',resize); resize();
+
+function flower(x,y,s,a=0){
+  ctx.save();ctx.translate(x,y);ctx.rotate(a);
+  // stem
+  ctx.strokeStyle='#19745d';ctx.lineWidth=Math.max(2,s*.09);ctx.beginPath();ctx.moveTo(0,s*.35);ctx.quadraticCurveTo(-s*.1,s*.65,s*.02,s);ctx.stroke();
+  // leaves
+  ctx.fillStyle='#248467';
+  ctx.beginPath();ctx.ellipse(-s*.13,s*.58,s*.16,s*.07,-.45,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(s*.12,s*.72,s*.16,s*.07,.45,0,Math.PI*2);ctx.fill();
+  // petals
+  for(let i=0;i<12;i++){ctx.save();ctx.rotate(i*Math.PI/6);ctx.fillStyle=i%2?'#ffd52a':'#ffca0a';ctx.beginPath();ctx.ellipse(0,-s*.22,s*.16,s*.31,0,0,Math.PI*2);ctx.fill();ctx.restore()}
+  ctx.fillStyle='#6a3d00';ctx.beginPath();ctx.arc(0,0,s*.13,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+}
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  // soft floating petals
+  flowers.forEach(f=>{
+    f.y-=f.v;
+    f.x+=Math.sin(f.t)*.25;
+    f.t+=.018;
+    if(f.y<-30)f.y=H+30;
+    flower(f.x,f.y,f.s,f.a);
+  });
+  requestAnimationFrame(draw);
+}
+function makeFlowers(){
+  flowers=[];
+  const count=Math.min(95,Math.max(42,Math.floor(W*H/15000)));
+  for(let i=0;i<count;i++){
+    const x=W*.08+Math.random()*W*.84;
+    const y=H*.10+Math.random()*H*.76;
+    flowers.push({x,y,s:10+Math.random()*18,v:.05+Math.random()*.22,a:(Math.random()-.5)*.5,t:Math.random()*10});
+  }
+}
+makeFlowers();draw();
+
+document.getElementById('open').onclick=()=>{
+  document.getElementById('letter').classList.add('show');
+  document.getElementById('open').textContent='🌻 Estas flores son para ti';
+  for(let i=0;i<18;i++) flowers.push({x:W/2+(Math.random()-.5)*260,y:H*.52+(Math.random()-.5)*170,s:12+Math.random()*16,v:.1+Math.random()*.3,a:0,t:Math.random()*10});
+};
+</script>
+</body>
+</html>
