@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090704">
+<title>Para Laura 🌻💕</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#080705;color:#fff8df;font-family:Georgia,serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 50% 25%,#4a3208 0,#160f04 38%,#050504 80%)}
+#sky{position:fixed;inset:0;z-index:-2;pointer-events:none}.petal,.spark{position:absolute;pointer-events:none}
+.petal{width:11px;height:18px;border-radius:80% 15% 80% 15%;background:#ffd52a;filter:drop-shadow(0 0 5px #ffd52a);animation:fall linear infinite}
+.spark{width:4px;height:4px;border-radius:50%;background:#fff2a6;box-shadow:0 0 12px #ffe77a;animation:twinkle 2s ease-in-out infinite}
+@keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0);opacity:0}12%{opacity:1}100%{transform:translate3d(80px,115vh,0) rotate(540deg);opacity:.15}}
+@keyframes twinkle{50%{transform:scale(2);opacity:.25}}
+.wrap{width:min(940px,92%);margin:auto}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:50px 0 35px;position:relative}
+.hero h1{font-size:clamp(58px,15vw,120px);line-height:.85;margin:12px 0;color:#ffd32a;text-shadow:0 0 12px #ffbd00,0 0 40px #b97700;animation:glow 2.5s ease-in-out infinite}
+@keyframes glow{50%{text-shadow:0 0 25px #ffdd55,0 0 70px #c88700}}
+.kicker{letter-spacing:5px;text-transform:uppercase;color:#ffe98a;font-size:12px}.hero p{font-size:clamp(17px,4vw,23px);line-height:1.55;max-width:650px;margin:24px auto;color:#fff7df}
+button{border:1px solid #ffe06a;background:linear-gradient(135deg,#ffe76a,#ffb700);color:#231800;font-weight:800;border-radius:999px;padding:16px 25px;font-size:16px;box-shadow:0 0 30px #ffbd0045;cursor:pointer;transition:.25s}button:active{transform:scale(.96)}
+.secondary{background:#171208;color:#ffe89a;border-color:#765d20;margin:10px}
+.flower-stage{height:240px;position:relative;margin:15px auto 0;max-width:560px}.stem{position:absolute;left:50%;bottom:0;width:7px;height:190px;background:#267957;border-radius:10px;transform-origin:bottom;animation:grow 2s ease-out}.leaf{position:absolute;width:80px;height:30px;background:#2f9169;border-radius:100% 0 100% 0}.l1{left:29%;bottom:65px;transform:rotate(20deg)}.l2{right:28%;bottom:95px;transform:scaleX(-1) rotate(20deg)}.bloom{position:absolute;left:50%;top:20px;width:100px;height:100px;transform:translateX(-50%) scale(0);animation:bloom 1.5s 1.4s forwards}.bloom i{position:absolute;inset:0}.bloom i:before{content:"";position:absolute;left:50%;top:50%;width:42px;height:75px;border-radius:50% 50% 45% 45%;background:#ffd21c;transform-origin:50% 100%;box-shadow:0 0 18px #ffc40080}.bloom i:nth-child(1){transform:rotate(0)}.bloom i:nth-child(2){transform:rotate(45deg)}.bloom i:nth-child(3){transform:rotate(90deg)}.bloom i:nth-child(4){transform:rotate(135deg)}.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;background:#633c05;box-shadow:0 0 12px #3b2100}
+@keyframes grow{from{height:0}to{height:190px}}@keyframes bloom{to{transform:translateX(-50%) scale(1)}}
+.section{padding:70px 0;text-align:center}.section h2{font-size:clamp(32px,8vw,52px);color:#ffd62e;margin:0 0 12px}.section>p{max-width:650px;margin:0 auto 28px;line-height:1.7;color:#f4e9c8}
+.card{background:#120f09cc;border:1px solid #80651f66;border-radius:28px;padding:28px;box-shadow:0 20px 60px #0008;backdrop-filter:blur(10px)}
+.letter{font-size:18px;line-height:1.85;color:#fff4ce}.signature{color:#ffd62e;font-size:25px;margin-top:20px}
+.videoBox{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;border:1px solid #9c7c25;background:#050403;box-shadow:0 0 50px #ffbd0020}.videoBox iframe{width:100%;height:100%;border:0}.videoHint{font-size:13px;color:#bfb28f;margin-top:12px}
+.reveal{opacity:0;transform:translateY(35px);transition:.9s}.reveal.show{opacity:1;transform:none}
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+footer{text-align:center;padding:50px 0 70px;color:#a99d7b}
+.heartBurst{position:fixed;left:50%;top:50%;pointer-events:none;font-size:25px;z-index:20;animation:burst 1.5s ease-out forwards}@keyframes burst{to{transform:translate(var(--x),var(--y)) scale(.3) rotate(30deg);opacity:0}}
+@media(max-width:500px){.flower-stage{height:210px}.stem{height:165px}.hero{min-height:95svh}.section{padding:55px 0}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+<main>
+<section class="hero wrap">
+<div>
+<div class="kicker">21 de septiembre · una sorpresa para ti</div>
+<h1>Laura 💕</h1>
+<p>Hoy no quería simplemente regalarte flores amarillas… quería crear un pequeño mundo que floreciera solo para ti.</p>
+<div class="flower-stage" aria-hidden="true"><div class="stem"></div><div class="leaf l1"></div><div class="leaf l2"></div><div class="bloom"><i></i><i></i><i></i><i></i><div class="center"></div></div></div>
+<button id="magic">🌻 Haz florecer la magia</button>
+<div class="controls"><button class="secondary" id="hearts">💕 Llenar la pantalla de corazones</button><button class="secondary" id="scroll">✨ Descubrir la sorpresa</button></div>
+</div>
+</section>
+<section class="section wrap reveal" id="message">
+<h2>Para Laura</h2>
+<div class="card letter">
+<p>Si pudiera regalarte un jardín entero, probablemente empezaría por una sola flor… y después dejaría que aparecieran todas las demás hasta llenar tu día de color.</p>
+<p>Estas flores amarillas son un pequeño detalle, pero detrás de ellas hay algo mucho más importante: <strong>quería hacerte sonreír.</strong> 💛</p>
+<div class="signature">Con cariño, para ti 🌻</div>
+</div>
+</section>
+<section class="section wrap reveal" id="video">
+<h2>Ahora mira esto 🎬</h2>
+<p>Te dejé un pequeño momento de flores para que la sorpresa continúe. Puedes ponerlo en pantalla completa.</p>
+<div class="videoBox">
+<iframe src="https://www.youtube.com/embed/5QXeJwQ0Sy4?rel=0&modestbranding=1" title="Flores en 4K" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="videoHint">Video de flores en 4K de Relaxation Film.</div>
+</section>
+<section class="section wrap reveal">
+<h2>Una última sorpresa 🌼</h2>
+<div class="card">
+<p style="font-size:19px;line-height:1.7">Toca la pantalla y mira cómo el jardín se llena de corazones.</p>
+<button id="final">💛 Quiero ver más</button>
+<p id="finalText" style="display:none;font-size:22px;color:#ffd62e;margin-bottom:0">Laura, que nunca te falten motivos para sonreír. 💕🌻✨</p>
+</div>
+</section>
+</main>
+<footer>Hecho especialmente para Laura · 21 de septiembre 🌻</footer>
+<script>
+const sky=document.getElementById('sky');
+for(let i=0;i<34;i++){const e=document.createElement('span');e.className='petal';e.style.left=Math.random()*100+'%';e.style.animationDuration=(6+Math.random()*9)+'s';e.style.animationDelay=(-Math.random()*12)+'s';e.style.transform='scale('+(0.5+Math.random()*1.2)+')';sky.appendChild(e)}
+for(let i=0;i<45;i++){const e=document.createElement('span');e.className='spark';e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';e.style.animationDelay=(Math.random()*3)+'s';sky.appendChild(e)}
+const revealEls=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.15});revealEls.forEach(e=>io.observe(e));
+document.getElementById('magic').addEventListener('click',()=>{document.getElementById('message').scrollIntoView({behavior:'smooth'});burst(18)});
+document.getElementById('scroll').addEventListener('click',()=>document.getElementById('video').scrollIntoView({behavior:'smooth'}));
+document.getElementById('hearts').addEventListener('click',()=>burst(42));
+document.getElementById('final').addEventListener('click',()=>{document.getElementById('finalText').style.display='block';burst(55)});
+function burst(n){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='heartBurst';e.textContent=Math.random()>.35?'💕':'🌻';e.style.setProperty('--x',(Math.random()*360-180)+'px');e.style.setProperty('--y',(Math.random()*420-210)+'px');e.style.animationDelay=(Math.random()*.25)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),1800)}}
+</script>
+</body>
+</html>
